@@ -18,8 +18,8 @@ __________           .___      .__  .__                 _____  .__       .__    
 
 #define MODEL           "PedalinoMini™"
 #define INTERFACES        6
-#define PROFILES          3
-#define BANKS            21   // 20 banks + 1 bank for global actions
+#define PROFILES          1
+#define BANKS            6   // 20 banks + 1 bank for global actions
 #define PEDALS            6   // real number of pedals is board specific (see below)
 #define SEQUENCES        16
 #define STEPS            10   // number of steps for each sequence
