@@ -30,8 +30,8 @@ You can change the presets of your guitar rig, turn old MIDI equipment into some
 ## Features
 
 - Support for digital foot switches (momentary or latch), analog expression pedals and jog wheels (rotary encoders)
-- 6 controllers ports. One controller port can support up to 6 indipendent switches for a total of 36 switches.
-- 20 banks
+- 6 controllers ports for ESP32 and 10 controllers ports for ESP32S3. One controller port can support up to 6 indipendent switches for a total of 36 (ESP32) or 60 (ESP32S3) switches.
+- 20 banks + 1 global bank
 - 3 user profiles
 - 16 sequences of 10 steps each
 - Each port can connect 1 expression pedal or 1 jog wheel or up to 6 foot switches via a resitors ladder (TC HELICON Switch-6).
@@ -96,6 +96,11 @@ Sponsors version additions/fixes since September 23rd, 2022:
 - Added "Set Bank" action in Sequences
 - Added "Step by Step+" and "Step by Step-" to run sequence step by step forward and backward
 - Added latch emulation for momentary switches
+- Initial suppport for BPI Leaf S3 (no USB MIDI device/host)
+- Increased Controls to 100
+- Configuration file up to 256Kb when PSRAM is available
+- Configuration file can be appended to current profile (only Actions)
+- Switch profile (CC 00 [01-03] on channel 16) and bank (CC 32 [00-20] on channel 1&) via MIDI
 
 [PedalinoMini™ Case 1](https://github.com/alf45tar/PedalinoMini-Case-1) is available to sponsors only.
 
@@ -220,6 +225,20 @@ USB MIDI and DIN MIDI connection requires additional hardware.
 ![Schematic2](./images/Schematic_PedalinoMini_Sheet-3.svg "Schematic3")
 
 Do not forget the add the pull-up resistors on PIN_A1 to PIN_A6 otherwise pins will be floating. A floating pin can trigger unexpected MIDI events. As alternative you can disable the not used pedals via web interface.
+
+To create your own ladder you can start simulating the below ones:
+
+Simulate voltage ladder 2k 3k 5.1k 10k 30K
+- [Thinkercad](https://www.tinkercad.com/things/7m1vdQfmXFo)
+- [Circuit Simulation Applet](https://tinyurl.com/2mrlxab7)
+
+Simulate voltage ladder 10k (TC-Helicom Switch 6)
+- [Thinkercad](https://www.tinkercad.com/things/jnovvmmsONp)
+- [Circuit Simulation Applet](https://tinyurl.com/2ptxv97t)
+
+Simulate "D1 Robot LCD Keypad Shield" voltage ladder
+- [Thinkercad](https://www.tinkercad.com/things/jQAR4Hrh3GH)
+- [Circuit Simulation Applet](https://tinyurl.com/2zbrnsh6)
 
 ## How to upload firmware, WiFi provisioning and access to web user interface
 
@@ -616,3 +635,7 @@ https://github.com/jimhiggs
 https://github.com/Keeze
 ![Keeze](https://user-images.githubusercontent.com/6306958/218185050-52533cb4-c31e-48e1-9e49-27c15cf6d23b.jpg)
 [More details](https://github.com/alf45tar/PedalinoMini/discussions/430)
+
+https://github.com/mattzzw
+![Keeze](https://user-images.githubusercontent.com/1312120/224659984-124092b5-49f4-4abf-a4c2-acec75f85838.jpg)
+[More details](https://github.com/alf45tar/PedalinoMini/discussions/438)
