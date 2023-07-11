@@ -123,7 +123,7 @@ void AppleMidiSendNoteOff(byte note, byte velocity, byte channel)
 
 void AppleMidiSendAfterTouchPoly(byte note, byte pressure, byte channel)
 {
-  if (wifiEnabled && interfaces[PED_RTPMIDI].midiOut) RTP_MIDI.sendPolyPressure(note, pressure, channel);
+  if (wifiEnabled && interfaces[PED_RTPMIDI].midiOut) RTP_MIDI.sendAfterTouch(note, pressure, channel);
 }
 
 void AppleMidiSendControlChange(byte number, byte value, byte channel)
@@ -235,6 +235,11 @@ void AppleMidiSendRealTimeMessage(byte type)
     }
 }
 
+void AppleMidiSendSytemExclusive(unsigned len, const byte *array)
+{
+  if (wifiEnabled && interfaces[PED_RTPMIDI].midiOut) RTP_MIDI.sendSysEx(len, array);
+}
+
 
 // Send messages to WiFi ipMIDI interface
 
@@ -250,7 +255,7 @@ void ipMIDISendNoteOff(byte note, byte velocity, byte channel)
 
 void ipMIDISendAfterTouchPoly(byte note, byte pressure, byte channel)
 {
-  if (wifiEnabled && interfaces[PED_IPMIDI].midiOut) IP_MIDI.sendPolyPressure(note, pressure, channel);
+  if (wifiEnabled && interfaces[PED_IPMIDI].midiOut) IP_MIDI.sendAfterTouch(note, pressure, channel);
 }
 
 void ipMIDISendControlChange(byte number, byte value, byte channel)
