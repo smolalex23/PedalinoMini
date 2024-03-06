@@ -5,48 +5,28 @@ __________           .___      .__  .__                 _____  .__       .__    
  |    |   \  ___// /_/ | / __ \|  |_|  |   |  (  <_> )    Y    \  |   |  \  | (  (     |    |/    Y    \   )  )
  |____|    \___  >____ |(____  /____/__|___|  /\____/\____|__  /__|___|  /__|  \  \    |____|\____|__  /  /  /
                \/     \/     \/             \/               \/        \/       \__\                 \/  /__/
-                                                                                   (c) 2018-2023 alf45star
+                                                                                   (c) 2018-2024 alf45star
                                                                        https://github.com/alf45tar/PedalinoMini
  */
 
-#include <MIDI.h>
+#include <MIDI.h>                       // https://github.com/FortySevenEffects/arduino_midi_library
 
+#include "ESPSerialMIDI.h"
 
-void USB_MIDI_SendRealTimeMessage(byte type)
+#define MIDI_BAUD_RATE                  31250
+#define HIGH_SPEED_SERIAL_BAUD_RATE     1000000
+
+struct Serial2MIDISettings : public midi::DefaultSettings
 {
-  if (!interfaces[PED_USBMIDI].midiOut) return;
+  static const long BaudRate = MIDI_BAUD_RATE;
+  static const int8_t RxPin  = DIN_MIDI_IN_PIN;
+  static const int8_t TxPin  = DIN_MIDI_OUT_PIN;
+};
 
-  switch (type) {
+#define SERIAL_MIDI_DIN   Serial2
 
-      case midi::TuneRequest:
-        USB_MIDI.sendTuneRequest();
-        break;
+MIDI_CREATE_CUSTOM_INSTANCE_ESP(HardwareSerial, SERIAL_MIDI_DIN, DIN_MIDI, Serial2MIDISettings);
 
-      case midi::Clock:
-        USB_MIDI.sendClock();
-        break;
-
-      case midi::Start:
-        USB_MIDI.sendStart();
-        break;
-
-      case midi::Continue:
-        USB_MIDI.sendContinue();
-        break;
-
-      case midi::Stop:
-        USB_MIDI.sendStop();
-        break;
-
-      case midi::ActiveSensing:
-        USB_MIDI.sendActiveSensing();
-        break;
-
-      case midi::SystemReset:
-        USB_MIDI.sendSystemReset();
-        break;
-    }
-}
 
 void DIN_MIDI_SendRealTimeMessage(byte type)
 {
