@@ -1,4 +1,5 @@
-[![](./images/PedalinoMini-Case-1.png)](https://www.youtube.com/watch?v=PgAAQd82aIo)
+[![](https://github.com/alf45tar/PedalinoMini-8/blob/fde349a01218d866c310c22895a28c323da8b707/images/PedalinoMini%208.jpg)](https://github.com/alf45tar/PedalinoMini-8)
+
 
 # PedalinoMini™
 
@@ -55,6 +56,12 @@ An easy way to create one is by building the [PedalinoMini™ 4](https://github.
 
 [![](https://github.com/alf45tar/PedalinoMini-4/blob/main/images/PedalinoMini%204.jpg)](https://github.com/alf45tar/PedalinoMini-4)
 
+## PedalinoMini™ 8
+
+Do you need more footswitches? [PedalinoMini™ 8](https://github.com/alf45tar/PedalinoMini-8) is for you.
+
+[![](https://github.com/alf45tar/PedalinoMini-8/blob/fde349a01218d866c310c22895a28c323da8b707/images/PedalinoMini%208%20Naked.jpg)](https://github.com/alf45tar/PedalinoMini-8)
+
 ## Sponsors
 
 New features, bug corrections, priority reply will be offered at zero-day to **sponsors only**. Sponsors will have access to a private repository.
@@ -82,6 +89,12 @@ Sponsors version additions/fixes since February 3st, 2024:
 - Fixed reboot on configuration load
 - Enabled PSRAM for LILYGO® T-Display-S3
 - Updated to ArduinoJson v7
+- Fixed reboot on change profile via WebUI
+- Fixed bank 0 Program Change leds
+- Updated to Adafruit TinyUSB Library version 3 (configuration description override)
+- Fixed LiLYGO® T-Display-S3 display off on battery
+- Modified the voltage detection
+- Fixed LiLYGO® T-Display-S3 leds strip and midi out pin overlap
 
 [PedalinoMini™ Case 1](https://github.com/alf45tar/PedalinoMini-Case-1) is available to sponsors only.
 
